@@ -55,6 +55,11 @@ public class Solution {
         return s.substring(begin,begin+maxLen);
     }
 
+    //中心扩展
+    public static String longestPalindromeWithCenter(){
+        return null;
+    }
+
 
     public static void main(String[] args) {
         String s="abcbaaa";
