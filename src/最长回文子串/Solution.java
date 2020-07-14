@@ -23,7 +23,7 @@ public class Solution {
 
         int maxLen=1;
         int begin=0;
-
+        //dp[i][j] 表示s[i...j] 是否是回文串
         boolean [] [] dp=new boolean[len][len];
         for (int i=0;i<len;i++){
             dp[i][i]=true;
@@ -32,10 +32,13 @@ public class Solution {
 
         for (int j=1;j<len;j++){
             for (int i=0;i<j;i++){
+
                 if (ss[i]!=ss[j]){
+                    //若首尾不等
                     dp[i][j]=false;
                 }else {
                     if (j-i<3){
+                        //头尾去掉以后没有字符剩余，或者剩下一个字符的时候，肯定是回文串
                         dp[i][j]=true;
                     }else {
                         dp[i][j]=dp[i+1][j-1];
