@@ -56,15 +56,50 @@ public class Solution {
     }
 
     //中心扩展
-    public static String longestPalindromeWithCenter(){
-        return null;
+    public static String longestPalindromeWithCenter(String s){
+        if (s==null||s.length()<1){
+            return "";
+        }
+        int start=0;
+        int end=0;
+
+        for (int i=0;i<s.length();i++){
+
+            //奇数长度的回文子串长度
+            int singleLength=expandCenter(s,i,i);
+            //偶数长度~
+            int doubleLength=expandCenter(s,i,i+1);
+
+            int len=Math.max(singleLength,doubleLength);
+
+            if (len>end-start){
+                start=i-(len-1)/2;
+                end=i+len/2;
+            }
+        }
+        return s.substring(start,end+1);
+    }
+
+    public static int expandCenter(String s,int left,int right){
+
+        //left = right 的时候，此时回文中心是一个字符，回文串的长度是奇数
+        //right = left + 1 的时候，此时回文中心是一个空隙，回文串的长度是偶数
+        // 跳出循环的时候恰好满足 s.charAt(left) ！= s.charAt(right)
+        while (left>=0&&right<s.length()&&s.charAt(left)==s.charAt(right)){
+            left--;
+            right++;
+        }
+
+        //回文串的长度是right-left+1-2 = right - left - 1
+        return right-left-1;
+
     }
 
 
     public static void main(String[] args) {
         String s="abcbaaa";
-        System.out.println(longestPalindrome(s));
-
+//        System.out.println(longestPalindrome(s));
+        System.out.println(longestPalindromeWithCenter(s));
     }
 
 }
