@@ -20,6 +20,7 @@ public class Solution {
         }
 
         int rev=0;
+        //当左>右时，就不需要再进行了（已经得到了右边的值）
         while (x>rev){
             int temp=x%10;
             rev=rev*10+temp;
