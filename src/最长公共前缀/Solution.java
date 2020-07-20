@@ -19,14 +19,17 @@ public class Solution {
         if(strs==null||strs.length==0) return "";
         String res=strs[0];
 
-        for (int i=0;i<strs.length;i++){
-            for (int j=0;j<res.length()&&j<strs[i].length();j++){
+        for (int i=1;i<strs.length;i++){
+
+            int j=0;
+            for (;j<res.length()&&j<strs[i].length();j++){
                 if (res.charAt(j)!=strs[i].charAt(j)){
                     //因为是公共前缀 所以只要存在不同的就可以直接跳出了
-                    res=res.substring(0,j);
                     break;
                 }
             }
+            //放外面是为了保证 存不存在都要保证切割（某一字符串可能长度不够，这样就进不到不相等的条件 所以只能在外面切割）
+            res=res.substring(0,j);
         }
         return res;
     }
@@ -34,7 +37,7 @@ public class Solution {
     public static void main(String[] args) {
         String [] s={"flower","flow","flight"};
 
-        String []s1={"dog","racecar","car"};
+        String []s1={"aa","a"};
         System.out.println(longestCommonPrefix(s1));
     }
 
