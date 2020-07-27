@@ -13,7 +13,7 @@ public class Solution {
     //自己想的
     public static int maxSubArray(int[] nums) {
         int len=nums.length;
-        int max=0;
+        int max=Integer.MIN_VALUE;
         for (int i=0;i<len;i++){
             for (int j=i;j<len;j++){
                 int sum=0;
