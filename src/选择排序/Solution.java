@@ -4,6 +4,17 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+/**
+ *
+ * 　　a、将第一个值看成最小值
+ *
+ * 　　b、然后和后续的比较找出最小值和下标
+ *
+ * 　　c、交换本次遍历的起始值和最小值
+ *
+ * 　　d、说明：每次遍历的时候，将前面找出的最小值，看成一个有序的列表，后面的看成无序的列表，然后每次遍历无序列表找出最小值。
+ *
+ */
 public class Solution {
 
 

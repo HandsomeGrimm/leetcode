@@ -4,6 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+
+/**
+ *
+ * 　　a、冒泡排序，是通过每一次遍历获取最大/最小值
+ *
+ * 　　b、将最大值/最小值放在尾部/头部
+ *
+ * 　　c、然后除开最大值/最小值，剩下的数据在进行遍历获取最大/最小值
+ *
+ */
 public class Solution {
     /**
      * 逐一比較，将大的后移
