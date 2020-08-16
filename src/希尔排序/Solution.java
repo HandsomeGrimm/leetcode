@@ -18,45 +18,22 @@ public class Solution {
 
     public static void main(String[] args) {
         int[]nums={4,1,3,2,6,5,8,9,7};
-        shellSortWithChange(nums);
+        shellSort(nums);
         System.out.println(Arrays.toString(nums));
-
-        int[] arr={4,1,3,2,6,5,8,9,7};
-
-        for (int i = arr.length / 2; i > 0; i /= 2) {
-            //i层循环控制步长
-            for (int j = i; j < arr.length; j++) {
-                //j控制无序端的起始位置
-                for (int k = j; k > 0  && k - i >= 0; k -= i) {
-                    if (arr[k] < arr[k - i]) {
-                        int temp = arr[k - i];
-                        arr[k - i] = arr[k];
-                        arr[k] = temp;
-                    } else {
-                        break;
-                    }
-                }
-            }
-            //j,k为插入排序，不过步长为i
-        }
-        System.out.println(Arrays.toString(arr));
-
-
-
-
     }
 
-
+    //交换式
     public static void shellSortWithChange(int[] nums ){
-
+        int temp=0;
         //i层循环控制步长
         for(int i=nums.length/2;i>0;i/=2){
             //j层控制无序端的起始位置
             for (int j=i;j<nums.length;j++){
                 //j,k 为步长为i的插入排序
-                for (int k=j;k>0&&k-i>0;k-=i){
+                for (int k=j;k>0;k-=i){
+
                     if (nums[k]<nums[k-i]){
-                        int temp=nums[k-i];
+                        temp=nums[k-i];
                         nums[k-i]=nums[k];
                         nums[k]=temp;
                     }else {
@@ -64,10 +41,27 @@ public class Solution {
                     }
                 }
             }
+            System.out.println("第"+i+"轮排序后的情况："+Arrays.toString(nums));
         }
+    }
 
+    public static void shellSort(int[] nums) {
 
+        for (int i = nums.length / 2; i > 0; i /= 2) {
+            for (int j = i; j < nums.length; j++) {
+                int k = j;
+                int temp = nums[k];
+                if (nums[k]<nums[k-i]){
+                    while (k - i >= 0 && temp< nums[k - i]) {
+                        nums[k] = nums[k - i];
+                        k -= i;
+                    }
+                    nums[k] = temp;
+                }
 
+            }
+            System.out.println("第"+i+"轮排序后的情况："+Arrays.toString(nums));
+        }
     }
 
 }

@@ -15,8 +15,8 @@ public class Solution {
 
     public static void main(String[] args) {
         int [] arr={8,5,3,4,12,20};
-        insertSort(arr);
-        System.out.println(Arrays.toString(arr));
+        betterInsertSort(arr);
+//        System.out.println(Arrays.toString(arr));
     }
 
     public static void  betterInsertSort(int [] arr){
@@ -36,6 +36,7 @@ public class Solution {
             }
             //找到插入位置后应该放位置后面
             arr[insertIndex+1]=insertValue;
+            System.out.println(Arrays.toString(arr));
         }
     }
 
@@ -54,6 +55,7 @@ public class Solution {
                     break;
                 }
             }
+            System.out.println(Arrays.toString(nums));
         }
     }
 }
