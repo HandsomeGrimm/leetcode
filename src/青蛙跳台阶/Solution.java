@@ -58,9 +58,10 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        System.out.println(totalWays(5));
-        Solution solution=new Solution();
-        System.out.println(solution.totalWaysWithCache(5));
+//        System.out.println(totalWays(5));
+//        Solution solution=new Solution();
+//        System.out.println(solution.totalWaysWithCache(5));
+        System.out.println(Integer.MAX_VALUE);
     }
 
 }
