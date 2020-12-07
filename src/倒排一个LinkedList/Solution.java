@@ -29,6 +29,7 @@ public class Solution {
 
         Node node=reverseList(node1);
         System.out.println(node.toString());
+
     }
 
 
